@@ -68,7 +68,7 @@ const FEATURES = [
     icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
     color: '#ec4899',
     title: 'Secure Sync',
-    desc: 'Your bookmarks are synced to Supabase in real-time — private by default, accessible from anywhere.',
+    desc: 'Your bookmarks are encrypted and synced to the cloud in real-time — private by default, accessible from anywhere.',
   },
   {
     icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75',
@@ -111,6 +111,8 @@ function HomeContent() {
     </div>
   );
 
+  const username = user?.email?.replace('@bookmarklinks.local', '') ?? null;
+
   return (
     <div className="landing">
       {/* ── NAVBAR ─────────────────────────────────────────────────── */}
@@ -124,8 +126,23 @@ function HomeContent() {
           </div>
           <div className="land-nav-right">
             <ThemeToggle />
-            <Link href="/" className="btn btn-outline land-nav-btn">Sign In</Link>
-            <Link href="/?signup=1" className="btn btn-primary land-nav-btn">Get Started</Link>
+            {username ? (
+              <Link href="/dashboard" className="btn btn-outline land-nav-btn">
+                @{username}
+              </Link>
+            ) : (
+              <>
+                <Link href="/auth" className="btn btn-outline land-nav-btn">Sign In</Link>
+                <a
+                  href="https://chrome.google.com/webstore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary land-nav-btn"
+                >
+                  Add to Chrome
+                </a>
+              </>
+            )}
           </div>
         </div>
       </nav>
@@ -160,7 +177,7 @@ function HomeContent() {
               Open Dashboard
             </Link>
           </div>
-          <p className="land-hero-note">No credit card · No email confirmation required</p>
+          <p className="land-hero-note">No credit card · No email confirmation required · Free forever</p>
         </div>
       </section>
 
