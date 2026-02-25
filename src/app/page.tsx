@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useAuth } from '@/components/AuthProvider';
 import ThemeToggle from '@/components/ThemeToggle';
 import PublicProfile from './PublicProfile';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 /* ── tiny icon components (inline SVG so no extra dep) ─────────────── */
 function Icon({ d, size = 20 }: { d: string; size?: number }) {
@@ -93,19 +93,14 @@ const FEATURES = [
 /* ── main page content ──────────────────────────────────────────────── */
 function HomeContent() {
   const { user, loading } = useAuth();
-  const router = useRouter();
   const searchParams = useSearchParams();
   const targetUser = searchParams.get('u');
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
-
-  useEffect(() => {
-    if (mounted && user && !loading && !targetUser) router.push('/dashboard');
-  }, [mounted, user, loading, targetUser, router]);
-
+  // Show public profile if ?u=username is present
   if (targetUser) return <PublicProfile searchParams={{ u: targetUser }} />;
-  if (!mounted || loading) return (
+
+  // Show spinner while auth is being determined
+  if (loading) return (
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div className="spinner" />
     </div>
