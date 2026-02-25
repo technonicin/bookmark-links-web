@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useAuth } from '@/components/AuthProvider';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import ThemeToggle from '@/components/ThemeToggle';
 import PublicProfile from './PublicProfile';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
