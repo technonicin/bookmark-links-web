@@ -4,9 +4,9 @@ import { useAuth } from '@/components/AuthProvider';
 import AuthForm from '@/components/AuthForm';
 import PublicProfile from './PublicProfile';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 
-export default function Home() {
+function HomeContent() {
   const { user, loading } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -39,4 +39,12 @@ export default function Home() {
   }
 
   return <AuthForm />;
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="auth-wrapper glass" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
+  );
 }
