@@ -940,3 +940,600 @@ h5 {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* ══════════════════════════════════════════════════
+   LANDING PAGE
+══════════════════════════════════════════════════ */
+.landing {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── Nav ─────────────────────────────────────────── */
+.land-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border-bottom: 1px solid var(--card-border);
+  padding: 0.875rem 1.5rem;
+}
+
+.land-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.land-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-weight: 800;
+  font-size: 1.0625rem;
+  letter-spacing: -0.03em;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.land-brand-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 3px 10px var(--primary-glow);
+}
+
+.land-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.land-nav-btn {
+  padding: 0.45rem 1rem;
+  font-size: 0.8125rem;
+}
+
+/* ── Container ───────────────────────────────────── */
+.land-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Hero ────────────────────────────────────────── */
+.land-hero {
+  position: relative;
+  padding: 7rem 0 6rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.land-hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.35;
+}
+
+.land-hero-glow-1 {
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  top: -100px;
+  left: 50%;
+  transform: translateX(-60%);
+}
+
+.land-hero-glow-2 {
+  width: 400px;
+  height: 300px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  bottom: -80px;
+  right: 10%;
+}
+
+.land-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.land-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.land-hero-title {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.land-gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.land-hero-sub {
+  max-width: 560px;
+  margin: 0 auto 2.25rem;
+  font-size: 1.0625rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.land-hero-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+}
+
+.land-cta-primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px var(--primary-glow);
+  transition: all 0.22s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.land-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--primary-glow);
+  filter: brightness(1.1);
+}
+
+.land-cta-outline {
+  background: transparent;
+  color: var(--foreground);
+  padding: 0.75rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 1.5px solid var(--card-border);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.land-cta-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-glow);
+  transform: translateY(-2px);
+}
+
+.land-cta-lg {
+  padding: 1rem 2.25rem;
+  font-size: 1rem;
+}
+
+.land-hero-note {
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+  color: var(--text-subtle);
+}
+
+/* ── Sections ────────────────────────────────────── */
+.land-section {
+  padding: 6rem 0;
+}
+
+.land-section-alt {
+  background: var(--section-bg);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.land-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.land-section-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.land-section-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-bottom: 3.5rem;
+  line-height: 1.65;
+}
+
+/* ── Steps ───────────────────────────────────────── */
+.land-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .land-steps { grid-template-columns: 1fr; }
+}
+
+.land-step-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  position: relative;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.land-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.land-step-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.land-step-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--primary-glow);
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  margin-bottom: 1.25rem;
+}
+
+.land-step-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.land-step-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── Features Grid ───────────────────────────────── */
+.land-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .land-features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .land-features-grid { grid-template-columns: 1fr; }
+}
+
+.land-feature-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.land-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  border-color: var(--feature-color, var(--primary));
+}
+
+.land-feature-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--feature-color, var(--primary));
+  background: color-mix(in srgb, var(--feature-color, var(--primary)) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--feature-color, var(--primary)) 20%, transparent);
+}
+
+.land-feature-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.4rem;
+}
+
+.land-feature-desc {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── Share section ───────────────────────────────── */
+.land-share-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .land-share-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.land-share-desc {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.land-code {
+  background: var(--input-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 0.1em 0.45em;
+  font-size: 0.875em;
+  font-family: 'Menlo', 'Consolas', monospace;
+  color: var(--primary);
+}
+
+.land-share-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.land-share-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.land-check {
+  color: #10b981;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.05em;
+}
+
+/* Fake profile preview card */
+.land-profile-preview {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lpp-header {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 0.25rem;
+}
+
+.lpp-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lpp-name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--foreground);
+}
+
+.lpp-count {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+.lpp-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.875rem;
+  background: var(--input-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  transition: border-color 0.2s ease;
+}
+
+.lpp-item:hover { border-color: var(--primary); }
+
+.lpp-cat-icon { font-size: 1rem; flex-shrink: 0; }
+
+.lpp-item-info { flex: 1; min-width: 0; }
+
+.lpp-item-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lpp-item-url {
+  font-size: 0.71rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lpp-cat-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-glow);
+  border: 1px solid var(--card-border);
+  border-radius: 99px;
+  padding: 0.15rem 0.55rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Bottom CTA ──────────────────────────────────── */
+.land-bottom-cta {
+  padding: 6rem 0;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--primary) 8%, var(--bg-base)) 0%,
+    color-mix(in srgb, var(--accent) 8%, var(--bg-base)) 100%);
+  border-top: 1px solid var(--card-border);
+}
+
+.land-bottom-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.land-bottom-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 2.25rem;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.land-footer {
+  border-top: 1px solid var(--card-border);
+  padding: 2.5rem 1.5rem 1.5rem;
+}
+
+.land-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 1.25rem;
+}
+
+.land-footer-brand { flex: 1; min-width: 160px; }
+
+.land-footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.land-footer-links a {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.land-footer-links a:hover { color: var(--foreground); }
+
+.land-footer-copy {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+}
+
+/* ── Spinner ─────────────────────────────────────── */
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--card-border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
